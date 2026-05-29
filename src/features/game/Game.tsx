@@ -1,14 +1,18 @@
 import Board from "../board/Board";
 import { useGame } from "../../context/GameContext";
-import { Link } from "react-router-dom";
+import Result from "./Result";
 
 export default function Game() {
   const { turn, winner } = useGame();
+
+  if (winner) {
+    return <Result />;
+  }
+
   return (
-    <div>
+    <div className="container text-center mt-5">
       <h2>Turn: {turn}</h2>
       <Board />
-      {winner && <Link to="/result">See Result</Link>}
     </div>
   );
 }
