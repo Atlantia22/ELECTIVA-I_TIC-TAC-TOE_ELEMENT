@@ -20,6 +20,7 @@ export const GameProvider = ({ children }) => {
     setTurn(turn === "X" ? "O" : "X");
   }
 
+  // Si el jugador es X y no hay ganador → bot juega como O
   if (!isBot && turn === "X" && !winner) {
     const emptyCells = newBoard
       .map((c, i) => (c ? null : i))
@@ -27,10 +28,12 @@ export const GameProvider = ({ children }) => {
 
     if (emptyCells.length > 0) {
       const botIndex = emptyCells[Math.floor(Math.random() * emptyCells.length)];
+      // Bot coloca su jugada automáticamente
       setTimeout(() => playMove(botIndex, true), 500);
     }
   }
 };
+
 
 const checkWinner = (board) => {
   const combos = [
