@@ -4,11 +4,12 @@ export default function Board() {
   const { board, playMove } = useGame();
 
   return (
-    <div className="grid grid-cols-3 gap-2 w-48">
+    <div className="d-grid gap-2" style={{ gridTemplateColumns: "repeat(3, 1fr)", width: "200px" }}>
       {board.map((cell, i) => (
         <button
           key={i}
-          className="h-16 w-16 border text-2xl"
+          className="btn btn-outline-dark"
+          style={{ height: "60px", fontSize: "24px" }}
           onClick={() => playMove(i)}
         >
           {cell}
