@@ -10,40 +10,18 @@ export const GameProvider = ({ children }) => {
   const [winner, setWinner] = useState(null);
 
   const playMove = (index: number, isBot = false) => {
-  // Validar siempre con el estado más reciente
-  setBoard(prevBoard => {
-    // Si la casilla ya está ocupada o hay ganador → no hacer nada
-    if (prevBoard[index] !== null || winner) return prevBoard;
+  if (board[index] !== null || winner) return;
 
-    const newBoard = [...prevBoard];
-    newBoard[index] = turn;
-    checkWinner(newBoard);
+  const newBoard = [...board];
+  newBoard[index] = turn;
+  setBoard(newBoard);
+  checkWinner(newBoard);
 
-    // Cambiar turno solo si no hay ganador
-    if (!winner) {
-      setTurn(turn === "X" ? "O" : "X");
-    }
-
-    // Si es el jugador humano (X) → bot juega como O
-    if (!isBot && turn === "X" && !winner) {
-      const emptyCells = newBoard
-        .map((c, i) => (c === null ? i : null))
-        .filter(i => i !== null);
-
-      if (emptyCells.length > 0) {
-        const botIndex = emptyCells[Math.floor(Math.random() * emptyCells.length)];
-        setTimeout(() => {
-          // Validar otra vez antes de jugar
-          if (newBoard[botIndex] === null) {
-            playMove(botIndex, true);
-          }
-        }, 500);
-      }
-    }
-
-    return newBoard;
-  });
+  if (!winner) {
+    setTurn(turn === "X" ? "O" : "X");
+  }
 };
+
 
 
 
@@ -87,6 +65,7 @@ useEffect(() => {
     }
   }
 }, [turn, winner, board]);
+
 
 
 
