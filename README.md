@@ -1,73 +1,33 @@
-# React + TypeScript + Vite
+# Frontend_TicTacToe_EquipoBeta
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+**Nombre de la Materia:** Electiva I
+**Nombre del Proyecto:** Tic Tac Toe Game  
+**Equipo:** Equipo Element  
+**Integrantes:**  
+- Karen Triviño Herrera   
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## 📌 Descripción
+Este proyecto implementa el juego clásico **Tic Tac Toe** como aplicación web interactiva.  
+Se desarrolla con **React.js + Vite**, aplicando la arquitectura **Screaming Components**, manejo de estado global con **Context API**, navegación con **React Router DOM**, e integración con **Firebase** para autenticación de usuarios, persistencia de puntajes y tabla de liderazgo en tiempo real.
 
-## React Compiler
+---
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## 📂 Requerimientos
+- Node.js 18+
+- React 19
+- Vite
+- React Router DOM
+- Context API
+- Firebase (Auth + Firestore)
+- BootStrap (para estilos responsivos)
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## ⚙️ Instrucciones de ejecución
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
-
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+1. Clonar el repositorio:
+   ```bash
+   git clone https://github.com/tuusuario/frontend_TicTacToe_EquipoBeta.git
+   cd frontend_TicTacToe_EquipoBeta
