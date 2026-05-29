@@ -1,8 +1,8 @@
-export default function Button({ children, onClick }) {
+export default function Button({ children, onClick, variant = "primary" }) {
   return (
     <button
       onClick={onClick}
-      className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600"
+      className={`btn btn-${variant} m-2`}
     >
       {children}
     </button>
