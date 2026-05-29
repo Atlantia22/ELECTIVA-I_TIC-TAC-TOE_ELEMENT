@@ -11,7 +11,7 @@ export default function Result() {
       </h2>
       <Button variant="primary" onClick={resetGame}>Play Again</Button>
       <Link to="/">
-        <Button variant="secondary">Back to Home</Button>
+        <Button variant="primary" onClick={resetGame}>Play Again</Button>
       </Link>
     </div>
   );
