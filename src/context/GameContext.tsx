@@ -10,7 +10,7 @@ export const GameProvider = ({ children }) => {
   const [winner, setWinner] = useState(null);
 
   const playMove = (index, isBot = false) => {
-  if (board[index] || winner) return;
+  if (board[index] !== null || winner) return;
 
   const newBoard = [...board];
   newBoard[index] = turn;
@@ -19,9 +19,8 @@ export const GameProvider = ({ children }) => {
 
   if (!winner) {
     setTurn(turn === "X" ? "O" : "X");
-  }
+  } 
 
-  // Si el jugador es X y no hay ganador → bot juega como O
   if (!isBot && turn === "X" && !winner) {
     const emptyCells = newBoard
       .map((c, i) => (c ? null : i))
@@ -29,7 +28,6 @@ export const GameProvider = ({ children }) => {
 
     if (emptyCells.length > 0) {
       const botIndex = emptyCells[Math.floor(Math.random() * emptyCells.length)];
-      // Bot coloca su jugada automáticamente
       setTimeout(() => playMove(botIndex, true), 500);
     }
   }
@@ -60,17 +58,21 @@ const checkWinner = (board) => {
 
 
 useEffect(() => {
-  if (turn === BOT_SYMBOL && !winner) {
+  if (turn === "O" && !winner) {
     const emptyCells = board
       .map((c, i) => (c ? null : i))
       .filter((i) => i !== null);
 
     if (emptyCells.length > 0) {
       const botIndex = emptyCells[Math.floor(Math.random() * emptyCells.length)];
-      setTimeout(() => playMove(botIndex, true), 500);
+      // Validar que la casilla esté realmente vacía
+      if (!board[botIndex]) {
+        setTimeout(() => playMove(botIndex, true), 500);
+      }
     }
   }
 }, [turn, winner, board]);
+
 
   return (
     <GameContext.Provider value={{ board, turn, winner, playMove, resetGame }}>
