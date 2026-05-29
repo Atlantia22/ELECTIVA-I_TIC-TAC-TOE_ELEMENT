@@ -9,7 +9,6 @@ export default function Result() {
       <h2 className="mb-4">
         {winner === "Draw" ? "It's a Draw!" : `Winner: ${winner}`}
       </h2>
-      <Button variant="primary" onClick={resetGame}>Play Again</Button>
       <Link to="/">
         <Button variant="primary" onClick={resetGame}>Play Again</Button>
       </Link>
