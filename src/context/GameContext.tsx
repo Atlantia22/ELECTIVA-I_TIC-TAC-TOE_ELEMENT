@@ -9,29 +9,42 @@ export const GameProvider = ({ children }) => {
   const [turn, setTurn] = useState("X");
   const [winner, setWinner] = useState(null);
 
-  const playMove = (index, isBot = false) => {
-  if (board[index] !== null || winner) return;
+  const playMove = (index: number, isBot = false) => {
+  // Validar siempre con el estado más reciente
+  setBoard(prevBoard => {
+    // Si la casilla ya está ocupada o hay ganador → no hacer nada
+    if (prevBoard[index] !== null || winner) return prevBoard;
 
-  const newBoard = [...board];
-  newBoard[index] = turn;
-  setBoard(newBoard);
-  checkWinner(newBoard);
+    const newBoard = [...prevBoard];
+    newBoard[index] = turn;
+    checkWinner(newBoard);
 
-  if (!winner) {
-    setTurn(turn === "X" ? "O" : "X");
-  } 
-
-  if (!isBot && turn === "X" && !winner) {
-    const emptyCells = newBoard
-      .map((c, i) => (c ? null : i))
-      .filter((i) => i !== null);
-
-    if (emptyCells.length > 0) {
-      const botIndex = emptyCells[Math.floor(Math.random() * emptyCells.length)];
-      setTimeout(() => playMove(botIndex, true), 500);
+    // Cambiar turno solo si no hay ganador
+    if (!winner) {
+      setTurn(turn === "X" ? "O" : "X");
     }
-  }
+
+    // Si es el jugador humano (X) → bot juega como O
+    if (!isBot && turn === "X" && !winner) {
+      const emptyCells = newBoard
+        .map((c, i) => (c === null ? i : null))
+        .filter(i => i !== null);
+
+      if (emptyCells.length > 0) {
+        const botIndex = emptyCells[Math.floor(Math.random() * emptyCells.length)];
+        setTimeout(() => {
+          // Validar otra vez antes de jugar
+          if (newBoard[botIndex] === null) {
+            playMove(botIndex, true);
+          }
+        }, 500);
+      }
+    }
+
+    return newBoard;
+  });
 };
+
 
 
 const checkWinner = (board) => {
@@ -60,18 +73,21 @@ const checkWinner = (board) => {
 useEffect(() => {
   if (turn === "O" && !winner) {
     const emptyCells = board
-      .map((c, i) => (c ? null : i))
-      .filter((i) => i !== null);
+      .map((c, i) => (c === null ? i : null))
+      .filter(i => i !== null);
 
     if (emptyCells.length > 0) {
       const botIndex = emptyCells[Math.floor(Math.random() * emptyCells.length)];
-      // Validar que la casilla esté realmente vacía
-      if (!board[botIndex]) {
-        setTimeout(() => playMove(botIndex, true), 500);
-      }
+      setTimeout(() => {
+        // Validar antes de jugar
+        if (board[botIndex] === null) {
+          playMove(botIndex, true);
+        }
+      }, 500);
     }
   }
 }, [turn, winner, board]);
+
 
 
   return (
