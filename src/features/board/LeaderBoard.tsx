@@ -3,8 +3,7 @@ import { useScores } from "../../hooks/useScores";
 
 export default function Leaderboard() {
   const { getLeaderboard } = useScores();
-  const [scores, setScores] = useState<Score[]>([]);
-
+  const [scores, setScores] = useState<any[]>([]);
 
   useEffect(() => {
     getLeaderboard().then(setScores);

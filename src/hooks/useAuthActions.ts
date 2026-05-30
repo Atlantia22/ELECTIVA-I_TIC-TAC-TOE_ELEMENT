@@ -1,4 +1,3 @@
-// src/hooks/useAuthActions.ts
 import { auth } from "../firebase/config";
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut } from "firebase/auth";
 

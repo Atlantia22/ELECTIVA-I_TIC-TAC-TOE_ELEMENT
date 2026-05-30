@@ -1,4 +1,4 @@
-import Board from "../board/Board";
+import Board from "./Board";
 import { useGame } from "../../context/GameContext";
 import Result from "./Result";
 
