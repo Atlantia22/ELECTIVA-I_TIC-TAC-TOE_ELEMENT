@@ -13,27 +13,29 @@ export default function Home() {
     <>
       <Navbar />
       <div className="container text-center mt-5">
-        <h1>Bienvenido al Tic Tac Toe</h1>
-        
+        <h1 style={{ color: "var(--color-turquoise)" }}>
+          Welcome to Tic Tac Toe
+        </h1>
 
-        {/* 👇 Mostrar login/registro solo si NO hay usuario */}
         {!user ? (
-          <div className="mt-3">
+          <div className="mt-3 d-flex flex-column gap-2">
             <a href="/login">
-              <button className="btn btn-primary">Iniciar sesión</button>
+              <button className="btn btn-green w-100">Login</button>
             </a>
             <a href="/registro">
-              <button className="btn btn-secondary">Registrarse</button>
+              <button className="btn btn-orange w-100">Registrer</button>
             </a>
           </div>
         ) : (
-          <div className="mt-3">
-            <p>Hola {user.email}, ¡ya estás conectado!</p>
+          <div className="mt-3 d-flex flex-column gap-2">
+            <p style={{ color: "var(--color-green)" }}>
+               Hello {user.email}, you are logged in!
+            </p>
             <a href="/game">
-              <button className="btn btn-success">Ir al Juego</button>
+              <button className="btn btn-green w-100 w-auto mx-2">Play game</button>
             </a>
             <a href="/leaderboard">
-              <button className="btn btn-info">Ver Leaderboard</button>
+              <button className="btn btn-orange w-100">Ver Leaderboard</button>
             </a>
           </div>
         )}
