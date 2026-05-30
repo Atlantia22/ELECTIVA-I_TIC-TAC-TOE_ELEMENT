@@ -1,0 +1,34 @@
+:root {
+  --color-green: #4CAF50;
+  --color-turquoise: #40E0D0;
+  --color-yellow: #FFD700;
+  --color-orange: #FF9800;
+  --color-red: #F44336;
+}
+
+/* Botones */
+.btn-green { background-color: var(--color-green); color: white; }
+.btn-turquoise { background-color: var(--color-turquoise); color: white; }
+.btn-yellow { background-color: var(--color-yellow); color: #333; }
+.btn-orange { background-color: var(--color-orange); color: white; }
+.btn-red { background-color: var(--color-red); color: white; }
+
+/* Navbar */
+.navbar-custom {
+  background-color: var(--color-turquoise);
+}
+.navbar-custom .nav-link {
+  color: white;
+}
+.navbar-custom .nav-link:hover {
+  color: var(--color-yellow);
+}
+
+/* Formularios */
+.form-control {
+  border: 2px solid var(--color-orange);
+}
+.form-control:focus {
+  border-color: var(--color-green);
+  box-shadow: 0 0 5px var(--color-green);
+}

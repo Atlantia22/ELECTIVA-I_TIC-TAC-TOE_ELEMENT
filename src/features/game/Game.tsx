@@ -25,7 +25,7 @@ export default function Game() {
     <>
     <Navbar />
     <div className="container text-center mt-5">
-      <h2>Turn: {turn}</h2>
+      <h2 style={{ color: "var(--color-turquoise)" }}>Turn: {turn}</h2>
       <Board />
     </div>
     </>
