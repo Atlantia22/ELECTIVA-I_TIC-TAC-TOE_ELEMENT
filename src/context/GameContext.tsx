@@ -1,6 +1,6 @@
 import { createContext, useContext, useState } from "react";
 import { useEffect } from "react";
-import { GameState } from "../types/game";
+import type { GameState } from "../types/game";
 
 const GameContext = createContext(null);
 
