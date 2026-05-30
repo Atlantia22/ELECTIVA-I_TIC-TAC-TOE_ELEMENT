@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import Board from "./Board";
 import { useGame } from "../../context/GameContext";
 import Result from "./Result";
@@ -9,11 +10,13 @@ export default function Game() {
   const { saveScore } = useScores();
   const { user } = useAuth();
 
-  // Cuando haya ganador, guardar en Firestore
-  if (winner) {
-    if (user) {
-      saveScore(user.uid, winner);
+  useEffect(() => {
+    if (winner && user) {
+      saveScore(user.uid, winner, user.email);
     }
+  }, [winner, user, saveScore]);
+
+  if (winner) {
     return <Result />;
   }
 

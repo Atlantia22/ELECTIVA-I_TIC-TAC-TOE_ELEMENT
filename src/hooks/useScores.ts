@@ -5,7 +5,7 @@ export const useScores = () => {
   const saveScore = async (uid: string, winner: string, email: string) => {
     await addDoc(collection(db, "scores"), {
       uid,
-      email, // 👈 nuevo campo
+      email, 
       winner,
       date: new Date().toISOString(),
     });
