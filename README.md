@@ -1,4 +1,4 @@
-# Frontend_TicTacToe_EquipoBeta
+# ELECTIVA_TicTacToe_Element
 
 **Nombre de la Materia:** Electiva I
 **Nombre del Proyecto:** Tic Tac Toe Game  
