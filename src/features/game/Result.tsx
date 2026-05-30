@@ -1,17 +1,21 @@
 import { useGame } from "../../context/GameContext";
-import { Link } from "react-router-dom";
-import Button from "../../components/Button";
+import Navbar from "../../components/navBar";
 
 export default function Result() {
   const { winner, resetGame } = useGame();
+
   return (
+    <>
+    <Navbar />
     <div className="container text-center mt-5">
-      <h2 className="mb-4">
-        {winner === "Draw" ? "It's a Draw!" : `Winner: ${winner}`}
+      <h2>
+        {winner === "Draw" ? "Empate" : `Ganador: ${winner}`}
       </h2>
-      <Link to="/">
-        <Button variant="primary" onClick={resetGame}>Play Again</Button>
-      </Link>
+      <button onClick={resetGame} className="btn btn-primary mt-3">
+        Volver a intentar
+      </button>
     </div>
+    </>
   );
 }
+

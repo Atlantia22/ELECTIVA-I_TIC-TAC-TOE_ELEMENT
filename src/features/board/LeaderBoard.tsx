@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { useScores } from "../../hooks/useScores";
+import Navbar from "../../components/navBar";
 
 export default function LeaderBoard() {
   const { getScores } = useScores(); 
@@ -14,6 +15,8 @@ export default function LeaderBoard() {
   }, [getScores]);
 
   return (
+    <>
+    <Navbar />
     <div className="container mt-5">
       <h2>Leaderboard</h2>
       <table className="table table-striped">
@@ -35,5 +38,6 @@ export default function LeaderBoard() {
         </tbody>
       </table>
     </div>
+    </>
   );
 }

@@ -4,6 +4,7 @@ import { useGame } from "../../context/GameContext";
 import Result from "./Result";
 import { useScores } from "../../hooks/useScores";
 import { useAuth } from "../../context/AuthContext";
+import Navbar from "../../components/navBar";
 
 export default function Game() {
   const { turn, winner } = useGame();
@@ -21,9 +22,12 @@ export default function Game() {
   }
 
   return (
+    <>
+    <Navbar />
     <div className="container text-center mt-5">
       <h2>Turn: {turn}</h2>
       <Board />
     </div>
+    </>
   );
 }
