@@ -1,13 +1,15 @@
 import { createContext, useContext, useState } from "react";
 import { useEffect } from "react";
+import { GameState } from "../types/game";
 
 const GameContext = createContext(null);
 
 export const GameProvider = ({ children }) => {
   const BOT_SYMBOL = "O";
-  const [board, setBoard] = useState(Array(9).fill(null));
-  const [turn, setTurn] = useState("X");
-  const [winner, setWinner] = useState(null);
+const [board, setBoard] = useState<GameState["board"]>(Array(9).fill(null));
+const [turn, setTurn] = useState<GameState["turn"]>("X");
+const [winner, setWinner] = useState<GameState["winner"]>(null);
+
 
   const playMove = (index: number, isBot = false) => {
   if (board[index] !== null || winner) return;
