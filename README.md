@@ -8,7 +8,7 @@
 
 ---
 
-## 📌 Descripción
+## Descripción
 Este proyecto implementa el juego clásico **Tic Tac Toe** como aplicación web interactiva.  
 Se desarrolla con **React.js + Vite**, aplicando la arquitectura **Screaming Components**, manejo de estado global con **Context API**, navegación con **React Router DOM**, e integración con **Firebase** para autenticación de usuarios, persistencia de puntajes y tabla de liderazgo en tiempo real.
 
