@@ -6,7 +6,7 @@ import LeaderBoard from "../features/board/LeaderBoard";
 import Login from "../features/auth/login";
 import Register from "../features/auth/register";
 import PrivateRoute from "../components/PrivateRoute";
-import Home from "../features/Home/home";
+import Home from "../features/game/Home";
 
 export default function App() {
   return (
