@@ -6,14 +6,14 @@
   --color-red: #F44336;
 }
 
-/* Botones */
+
 .btn-green { background-color: var(--color-green); color: white; }
 .btn-turquoise { background-color: var(--color-turquoise); color: white; }
 .btn-yellow { background-color: var(--color-yellow); color: #333; }
 .btn-orange { background-color: var(--color-orange); color: white; }
 .btn-red { background-color: var(--color-red); color: white; }
 
-/* Navbar */
+
 .navbar-custom {
   background-color: var(--color-turquoise);
 }
@@ -24,7 +24,7 @@
   color: var(--color-yellow);
 }
 
-/* Formularios */
+
 .form-control {
   border: 2px solid var(--color-orange);
 }

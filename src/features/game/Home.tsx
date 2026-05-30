@@ -5,8 +5,7 @@ export default function Home() {
   const { user, loading } = useAuth();
 
   if (loading) {
-    // Mientras Firebase confirma la sesión, no mostramos nada
-    return <div className="text-center mt-5">Cargando sesión...</div>;
+    return <div className="text-center mt-5">Loading...</div>;
   }
 
   return (
@@ -20,10 +19,10 @@ export default function Home() {
         {!user ? (
           <div className="mt-3 d-flex flex-column gap-2">
             <a href="/login">
-              <button className="btn btn-green w-100">Login</button>
+              <button className="btn btn-green w-100 w-auto mx-2">Login</button>
             </a>
             <a href="/registro">
-              <button className="btn btn-orange w-100">Registrer</button>
+              <button className="btn btn-orange w-100 w-auto mx-2">Registrer</button>
             </a>
           </div>
         ) : (
@@ -35,7 +34,7 @@ export default function Home() {
               <button className="btn btn-green w-100 w-auto mx-2">Play game</button>
             </a>
             <a href="/leaderboard">
-              <button className="btn btn-orange w-100">Ver Leaderboard</button>
+              <button className="btn btn-orange w-100 w-auto mx-2">Leaderboard</button>
             </a>
           </div>
         )}

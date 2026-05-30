@@ -12,20 +12,19 @@ export default function Navbar() {
   };
 
   return (
-    <nav className="navbar navbar-dark bg-dark px-3">
-      <div className="d-flex gap-2">
-        <button onClick={() => navigate(-1)} className="btn btn-secondary">←</button>
-        <button onClick={() => navigate(1)} className="btn btn-secondary">→</button>
-        <Link to="/" className="btn btn-light">Home</Link>
-        <Link to="/game" className="btn btn-success">Juego</Link>
-        <Link to="/leaderboard" className="btn btn-info">Leaderboard</Link>
-      </div>
+      <nav className="navbar navbar-custom px-3">
+    <div className="d-flex gap-2">
+      <button onClick={() => navigate(-1)} className="btn btn-yellow">←</button>
+      <Link to="/" className="btn btn-turquoise">Home</Link>
+      <Link to="/game" className="btn btn-green">Game</Link>
+      <Link to="/leaderboard" className="btn btn-orange">Leaderboard</Link>
+    </div>
 
-      {user && (
-        <button onClick={handleLogout} className="btn btn-danger">
-          Cerrar sesión
-        </button>
-      )}
-    </nav>
+    {user && (
+      <button onClick={handleLogout} className="btn btn-red">
+        Log out
+      </button>
+    )}
+  </nav>
   );
 }

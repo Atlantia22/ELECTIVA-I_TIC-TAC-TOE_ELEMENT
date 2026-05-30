@@ -9,10 +9,10 @@ export default function Result() {
     <Navbar />
     <div className="container text-center mt-5">
       <h2>
-        {winner === "Draw" ? "Empate" : `Ganador: ${winner}`}
+        {winner === "Draw" ? "Empate" : `Winner: ${winner}`}
       </h2>
       <button onClick={resetGame} className="btn btn-primary mt-3">
-        Volver a intentar
+        Try again
       </button>
     </div>
     </>

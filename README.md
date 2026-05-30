@@ -14,7 +14,7 @@ Se desarrolla con **React.js + Vite**, aplicando la arquitectura **Screaming Com
 
 ---
 
-## 📂 Requerimientos
+## Requerimientos
 - Node.js 18+
 - React 19
 - Vite
@@ -25,7 +25,7 @@ Se desarrolla con **React.js + Vite**, aplicando la arquitectura **Screaming Com
 
 ---
 
-## ⚙️ Instrucciones de ejecución
+## Instrucciones de ejecución
 
 1. Clonar el repositorio:
    ```bash
