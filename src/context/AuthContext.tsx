@@ -1,7 +1,8 @@
 import { createContext, useContext, useEffect, useState } from "react";
 import { auth } from "../firebase/config";
-import { onAuthStateChanged, User as FirebaseUser } from "firebase/auth";
-import { User } from "../types/game";
+import { onAuthStateChanged } from "firebase/auth";
+import type { User as FirebaseUser } from "firebase/auth";
+import { User } from "../types/user";
 
 interface AuthContextType {
   user: User | null;
